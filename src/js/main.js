@@ -17,7 +17,7 @@ server.on('closed', () => {
 });
 
 
-server.init({key: 'jlu5rpiwwswnrk9'}).then((id) => {
+server.init({key: 'jlu5rpiwwswnrk9', secure: true }).then((id) => {
   prompt('copy this id to your client, for remote playing [https://mklan.github.io/canvasStreamer/Client]', id);
   createWorld();
 });
