@@ -6,8 +6,8 @@ the game uses a canvas streaming library [https://github.com/matthiasklan/canvas
 
 here is a playable Demo:
 
-http://matthiasklan.github.io/cuberoll/
+httpw://mklan.github.io/cuberoll/
 
 you can stream and play this game remote with this client on any other machine or another browser window.
 
-http://matthiasklan.github.io/canvasStreamer/Client/
+httpw://mklan.github.io/canvasStreamer/Client/
