@@ -18,7 +18,7 @@ server.on('closed', () => {
 
 
 server.init({key: 'jlu5rpiwwswnrk9'}).then((id) => {
-  prompt('copy this id to your client, for remote playing [http://matthiasklan.github.io/canvasStreamer/Client]', id);
+  prompt('copy this id to your client, for remote playing [https://mklan.github.io/canvasStreamer/Client]', id);
   createWorld();
 });
 
