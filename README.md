@@ -3,14 +3,27 @@ a small WebGL game, to demonstrate streaming games for dedicated gaming
 
 the game uses a canvas streaming library [https://github.com/matthiasklan/canvasStreamer] to stream the game over WebRTC to a client for remote gaming.
 
+# development
 
-> __Warning:__ The deployed demo is not working anymore, because the peerjs cloud does not support tls connections and the github pages ist switched to enforcing https connections.
+```
+    npm install
+    npm start
+    
+    visit http://localhost:1234
+```
 
+# deployment
 
-here is a playable Demo:
+```
+    npm build
+```
 
-https://mklan.github.io/cuberoll/
+# demo
 
-you can stream and play this game remote with this client on any other machine or another browser window.
+> __Warning:__ The deployed demo is working only without streaming, because peerjs does not allow using their api via https
 
-https://mklan.github.io/canvasStreamer/Client/
+demo:
+
+link coming soon
+
+<!-- https://mklan.github.io/cuberoll/ -->
