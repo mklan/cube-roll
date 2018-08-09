@@ -1,4 +1,4 @@
-import PeerClient from './PeerClient';
+import PeerClient from './peerClient';
 
 export default class CanvasStreamerServer extends PeerClient {
 

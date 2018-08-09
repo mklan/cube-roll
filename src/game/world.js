@@ -1,16 +1,15 @@
 import THREE from 'three';
-import OBJLoader from 'three-obj-loader';
+import OBJLoader from './lib/ObjLoader';
 import Controls from './controls';
 import Hud from "./lib/Hud4Three/hud";
 
-const PIVOT_LEFT = 0;
-const PIVOT_MIDDLE = 1;
-const PIVOT_RIGHT = 2;
-
+import cube from '../assets/cube.obj';
+import ground from '../assets/ground.png';
 
 OBJLoader(THREE);
 
 export default class World{
+
 
     constructor(){
 
@@ -21,8 +20,11 @@ export default class World{
             this.scene = new THREE.Scene();
             let playerRotationParent = new THREE.Object3D();
 
+            // Manager from ThreeJs to track a loader and its status
+            // Loader for Obj from Three.js
             const loader = new THREE.OBJLoader(new THREE.LoadingManager());
-            loader.load('./cube.obj',(object) => {
+
+            loader.load(cube, (object) => {
 
                 object.traverse((child) => {
 
@@ -83,10 +85,10 @@ export default class World{
             this.createWall();
 
             if (this.walls.length > 1 && this.walls[1] !== null){
-                //durch das gate gekommen
+                //got through gate
                 if(this.walls[1].hole == this.player.parent.position.x+4){
                     this.score += 10;
-                    //richtige Farbe
+                    //correct color
                     if(this.walls[1].color == this.player.children[0].material.color.getHex()){
                         this.score += 20;
                     }
@@ -130,7 +132,7 @@ export default class World{
         var randomMaterial = new THREE.MeshPhongMaterial();
 
         for (var i = 0; i < this.wallLength; i++) {
-            if (i === hole) { //Don't create a cube if there should be a hole
+            if (i === hole) { // Don't create a cube if there should be a hole
                 continue;
             }
             var tmpBlock = this.player.clone();
@@ -157,7 +159,7 @@ export default class World{
         return wall;
     }
 
-    createRenderer(width, height, renderOnServer) {
+    createRenderer(width, height) {
         const renderer = new THREE.WebGLRenderer({antialias: true, canvas: document.getElementById('canvas')});
         renderer.setSize(width, height);
         renderer.shadowMap.enabled = true;
@@ -199,7 +201,7 @@ export default class World{
     createFloor() {
 
         var textureLoader = new THREE.TextureLoader();
-        textureLoader.load('./ground.png', (texture)=>{
+        textureLoader.load(ground, (texture)=>{
             texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
             texture.repeat.set(2.5, 250);
             var floorMaterial = new THREE.MeshBasicMaterial({

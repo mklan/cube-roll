@@ -2,7 +2,7 @@
  * Created by Matthias on 21.08.2016.
  */
 import THREE from 'three';
-import hudTextElement from './HudTextElement';
+import hudTextElement from './hudTextElement';
 
 export default class Hud{
 
