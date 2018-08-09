@@ -4,8 +4,9 @@
   "description": "a demo game which can be streamedover webrtc",
   "author": "Matthias Klan <matthias.klan@gmail.com>",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "prebuild": "rm -rf dist",
+    "start": "parcel src/index.html --out-dir docs",
+    "build": "parcel build src/index.html --out-dir docs --public-url ./"
   },
   "dependencies": {
     "async-task": "^0.3.25",

@@ -15,7 +15,7 @@ the game uses a canvas streaming library [https://github.com/mklan/canvasStreame
 # deployment
 
 ```
-    npm build
+    npm run build
 ```
 
 # demo
