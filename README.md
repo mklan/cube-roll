@@ -1,9 +1,9 @@
-# cubeRoll
+# cube-roll (2016)
 a small WebGL game, to demonstrate streaming games for dedicated gaming
 
 the game uses a canvas streaming library [https://github.com/mklan/canvasStreamer] to stream the game over WebRTC to a client for remote gaming.
 
-# development
+# Development
 
 ```
     npm install
@@ -12,18 +12,20 @@ the game uses a canvas streaming library [https://github.com/mklan/canvasStreame
     visit http://localhost:1234
 ```
 
-# deployment
+# Deployment
 
 ```
     npm run build
 ```
 
-# demo
+# Demo
 
-> __Warning:__ The deployed demo is working only without streaming, because peerjs does not allow using their api via https
+> __Note:__ The deployed demo is working only without streaming, because peerjs does not allow using their api via https
 
-demo:
 
-link coming soon
+https://mklan.github.io/cube-roll/
 
-<!-- https://mklan.github.io/cuberoll/ -->
+# Licence
+
+2016-2018 Matthias Klan
+gpl-3.0
