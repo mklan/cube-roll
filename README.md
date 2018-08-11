@@ -1,4 +1,8 @@
 # cube-roll (2016)
+
+![Gameplay as animated Gif](https://github.com/matthiasklan/cube-roll/blob/master/gameplay.gif)
+
+
 a small WebGL game, to demonstrate streaming games for dedicated gaming
 
 the game uses a canvas streaming library [https://github.com/mklan/canvasStreamer] to stream the game over WebRTC to a client for remote gaming.
