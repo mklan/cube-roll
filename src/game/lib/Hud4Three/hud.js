@@ -47,28 +47,24 @@ export default class Hud{
         this.sceneHUD.add( plane );
     }
 
-    addTextElement({id=new Date().getTime(), text, x, y, font, color, hidden}={}){
-
-        const textElement = new hudTextElement({text, x, y, font, color, hidden});
-        this.elements[id] = textElement;
-
+    addElement(element, id=Date.now()){
+        this.elements[id] = element;
         this.redraw = true;
-
         return id;
     }
 
     showElement(id){
-        this.elements[id].show();
+        this.elements[id].visible = true;
         this.redraw = true;
     }
 
     hideElement(id){
-        this.elements[id].hide();
+        this.elements[id].visible = false;
         this.redraw = true;
     }
 
     setText(id, text){
-        this.elements[id].setText(text);
+        this.elements[id].test = text;
         this.redraw = true;
     }
 
@@ -83,14 +79,13 @@ export default class Hud{
 
             this.hudContext.clearRect(0, 0, this.width, this.height);
 
-            for (let i in this.elements) {
-                let {text, x, y, font, color} = this.elements[i];
-                if(this.elements[i].isHidden()) continue;
+            Object.values(this.elements).filter(element => element.visible).forEach(element => {
+                const {text, x, y, font, color} = element;
                 this.hudContext.font = font;
                 this.hudContext.fillStyle = color;
                 this.hudContext.fillText(text, x, y);
-            }
-
+            });
+                
             this.hudTexture.needsUpdate = true;
         }
 

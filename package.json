@@ -5,7 +5,7 @@
   "author": "Matthias Klan <matthias.klan@gmail.com>",
   "scripts": {
     "prebuild": "rm -rf dist",
-    "start": "parcel src/index.html --out-dir doc",
+    "start": "parcel src/index.html --out-dir docs",
     "build": "parcel build src/index.html --out-dir docs --public-url ./"
   },
   "dependencies": {

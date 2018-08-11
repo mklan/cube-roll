@@ -5,6 +5,7 @@ import Hud from "./lib/Hud4Three/hud";
 
 import cube from '../assets/cube.obj';
 import ground from '../assets/ground.png';
+import HudTextElement from './lib/Hud4Three/hudTextElement';
 
 OBJLoader(THREE);
 
@@ -112,9 +113,10 @@ export default class World{
 
     createHUD(){        
         const hud = new Hud(this.renderer);
-        hud.addTextElement({id:'score', text:'Score: 0', x:30, y:60, color:'white'});
-        hud.addTextElement({id:'gameover', text:'GAME OVER, PRESS ENTER TO RESTART', x:25, y:260, color:'white', hidden: true});
-        hud.addTextElement({id:'instructions', font:'Bold 20px Arial', text:'PRESS ENTER TO START             (SPACE = HOLD COLOR, A, D = left,right)', x:80, y:260, color:'white'});
+
+        hud.addElement(new HudTextElement({ text:'Score: 0', x:30, y:60, color:'white' }), 'score')
+        hud.addElement(new HudTextElement({  font:'Bold 30px Arial', text:'GAME OVER, PRESS ENTER TO RESTART', x:90, y:260, color:'white', visible: false }), 'gameover')
+        hud.addElement(new HudTextElement({ font:'Bold 20px Arial', text:'PRESS ENTER TO START             (SPACE = HOLD COLOR, A, D = left,right)', x:20, y:430, color:'white' }), 'instructions')
         return hud;
     }
 

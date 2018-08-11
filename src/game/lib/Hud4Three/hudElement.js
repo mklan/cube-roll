@@ -3,21 +3,13 @@
  */
 export default class HudElement{
 
-    constructor(x, y, hidden){
+    constructor(x, y, visible){
         this.x = x;
         this.y = y;
-        this.render = !hidden;
+        this.visible = visible;
     }
 
-    show(){
-    	this.render = true;
-    }
-
-    hide(){
-    	this.render = false;
-    }
-
-    isHidden(){
-    	return !this.render;
+    setVisible(bool){
+    	this.visible = bool;
     }
 }
