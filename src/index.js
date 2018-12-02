@@ -1,6 +1,6 @@
 import World from './game/world';
 import CanvasStreamerServer from './game/lib/canvasStreamerServer';
-
+import 'babel-polyfill';
 import config from './config';
 
 let tickingStarted = false;
@@ -34,12 +34,16 @@ function initServer() {
 
 }
 
-async function main(connectToServer) {
+async function main(connectToServer, world = undefined) {
 
   renderPause = true;
-  const world = await new World();
-
-  world.playerControls.once('enterWhenGameOver', () =>  main(false));
+  if(!world){
+    world = await new World();
+  }
+  world.playerControls.once('enterWhenGameOver', async () => {
+    await world.constructor();
+    main(false,world);
+  });
 
   if (connectToServer) {
       server = await initServer;
@@ -56,7 +60,7 @@ async function main(connectToServer) {
 }
 
 function tick(world, server) {
-
+  
   requestAnimationFrame(() => tick(world, server));
 
   if (!renderPause) {
