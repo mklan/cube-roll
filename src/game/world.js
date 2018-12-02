@@ -15,6 +15,8 @@ export default class World{
     constructor(){
 
         return new Promise((resolve, reject)=>{
+            this.gameover = false;
+            this.gameStarted = false;
             this.renderOnServer = true;
 
             this.clock = new THREE.Clock();
