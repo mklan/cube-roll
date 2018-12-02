@@ -4,7 +4,7 @@
   "description": "a demo game which can be streamedover webrtc",
   "author": "Matthias Klan <matthias.klan@gmail.com>",
   "scripts": {
-    "prebuild": "rm -rf dist",
+    "prebuild": "rm -rf docs",
     "start": "parcel src/index.html --out-dir docs",
     "build": "parcel build src/index.html --out-dir docs --public-url ./"
   },
