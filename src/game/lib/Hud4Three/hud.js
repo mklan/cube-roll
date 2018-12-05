@@ -64,7 +64,7 @@ export default class Hud{
     }
 
     setText(id, text){
-        this.elements[id].test = text;
+        this.elements[id].text = text;
         this.redraw = true;
     }
 
